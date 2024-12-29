@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5cm;
+}
+
+table {
+    border-collapse: collapse;
+    break-inside: avoid;
+}
+
+td {
+    width: 3cm;
+    height: 3cm;
+    font-size: 1cm;
+    border: 1mm solid black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.hidden {
+    font-size: 0;
+}
+
+table tr:nth-child(1) td:nth-child(1),
+table tr:nth-child(1) td:nth-child(2),
+table tr:nth-child(2) td:nth-child(1),
+table tr:nth-child(2) td:nth-child(2) {
+    background-color: lightcoral;
+}
+
+table tr:nth-child(1) td:nth-child(3),
+table tr:nth-child(1) td:nth-child(4),
+table tr:nth-child(2) td:nth-child(3),
+table tr:nth-child(2) td:nth-child(4) {
+    background-color: lightyellow;
+}
+
+table tr:nth-child(3) td:nth-child(1),
+table tr:nth-child(3) td:nth-child(2),
+table tr:nth-child(4) td:nth-child(1),
+table tr:nth-child(4) td:nth-child(2) {
+    background-color: lightseagreen;
+}
+
+table tr:nth-child(3) td:nth-child(3),
+table tr:nth-child(3) td:nth-child(4),
+table tr:nth-child(4) td:nth-child(3),
+table tr:nth-child(4) td:nth-child(4) {
+    background-color: lightskyblue;
+}
