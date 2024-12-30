@@ -40,9 +40,10 @@ async function main(pl, config) {
     const { numBlanks, numToShow } = config;
     const generatorSession = pl.create();
     const checkerSession = pl.create();
+    const initialization = shuffle(["R1C1", "R1C2", "R1C3", "R1C4", "R2C1", "R2C2", "R2C3", "R2C4", "R3C1", "R3C2", "R3C3", "R3C4", "R4C1", "R4C2", "R4C3", "R4C4"]);
     await generatorSession.promiseConsult("./sudoku.pl");
     await checkerSession.promiseConsult("./sudoku.pl");
-    await generatorSession.promiseQuery("is_valid_sudoku(R1C1, R1C2, R1C3, R1C4, R2C1, R2C2, R2C3, R2C4, R3C1, R3C2, R3C3, R3C4, R4C1, R4C2, R4C3, R4C4).");
+    await generatorSession.promiseQuery(`is_valid_sudoku(${initialization.join(", ")}).`);
     const shown = [];
     for await (const validSudoku of generatorSession.promiseAnswers()) {
         const values = Object.values(validSudoku.links).map((it) => String(it.value));
